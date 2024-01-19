@@ -106,13 +106,13 @@ header,
 
 
 /* MAIN */
+main {
+    position: relative;
+}
+
 .container {
     width: 600px;
-    /* height: 90vh; */
     margin: 50px auto;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
 }
 
 section {
@@ -140,8 +140,6 @@ section {
         -moz-transform: translateY(0);
         -ms-transform: translateY(0);
         -o-transform: translateY(0);
-        box-shadow: inset 5px 5px 5pc rgba(136, 31, 248, 0.3);
-        border-radius: 10px;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         -ms-border-radius: 10px;
@@ -387,20 +385,24 @@ form .input-wrapper button[type="button"]:hover {
 .modal-loading .spinner {
     width: 60px;
     height: 60px;
-    border-radius: 50%;
-    border-top: 6px solid transparent;
-    border-left: 6px solid #ff186d;
+    border-radius: 100%;
+    border-top: 20px solid transparent;
+    /*border-left: 6px solid #ff186d;
+    border-left: 6px solid #ffba18;
     border-right: 6px solid #8418ff;
     border-bottom: 6px solid #ffba18;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
+    */-webkit-border-radius: 50%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
     animation: 1s loading-spinner infinite;
-    -webkit-animation: 1s loading-spinner infinite;
+    -webkit-animation: 1s loading-spinner infinite forwards, bgloading 1s infinite linear alternate;
+    -webkit-border-radius: 100%;
+    /* box-shadow: 0px 0px 25px 20px rgba(136, 31, 248, 0.2); */
 }
 
 .modal-loading .loading-text {
+    margin-top: 20px;
     animation: .5s opacityloading linear infinite alternate;
     -webkit-animation: .5s opacityloading linear infinite alternate;
 }
@@ -410,6 +412,15 @@ form .input-wrapper button[type="button"]:hover {
     to {opacity: 1;}
 }
 
+@keyframes bgloading {
+    from {
+        box-shadow: 0px 0px 25px 20px rgba(226, 51, 71, 0.3);
+    }
+    to {
+        box-shadow: 0px 0px 25px 20px rgba(132, 24, 255, 0.3);
+    }
+}   
+
 @keyframes loading-spinner {
     from {
         transform: rotate(0);
@@ -417,6 +428,9 @@ form .input-wrapper button[type="button"]:hover {
         -moz-transform: rotate(0);
         -ms-transform: rotate(0);
         -o-transform: rotate(0);
+        border-bottom: 6px solid #e23347;
+        border-left: 6px solid #e23347;
+        /* box-shadow: 0px 0px 25px 20px rgba(226, 51, 71, 0.3); */
     }
     to {
         transform: rotate(360deg);
@@ -424,11 +438,19 @@ form .input-wrapper button[type="button"]:hover {
         -moz-transform: rotate(360deg);
         -ms-transform: rotate(360deg);
         -o-transform: rotate(360deg);
+        border-bottom: 6px solid #8418ff;
+        border-left: 6px solid #8418ff;
+        /* box-shadow: 0px 0px 25px 20px rgba(132, 24, 255, 0.3); */
 }
 }
 
 /* RESPONSIVE */
 @media screen and (max-width:768px) {
+    .container {
+        position: absolute;
+        z-index: -1;
+    }
+
     button,
     a {
         cursor: default;
@@ -456,6 +478,7 @@ form .input-wrapper button[type="button"]:hover {
         -ms-transition: 0.3s;
         -o-transition: 0.3s;
         opacity: 0;
+        /* z-index: 99; */
 }
     
     .navbar-left .navbar-links a {

@@ -1,3 +1,6 @@
+const navbarLink = document.querySelector('.navbar-links');
+const menuToggler = document.querySelector('.menu-toggler');
+
 /**
  * 
  * @param {Event} evt 
@@ -18,13 +21,11 @@ function openSection(evt, sectionId) {
 
     document.getElementById(sectionId).style.display = 'block';
     evt.currentTarget.className += ' active';
+    navbarLink.classList.remove('active');
 }
 
 // Klik tombol pertama kali
 document.querySelector('#default-open').click();
-
-const navbarLink = document.querySelector('.navbar-links');
-const menuToggler = document.querySelector('.menu-toggler');
 
 function openNav() {
     navbarLink.classList.toggle('active');
